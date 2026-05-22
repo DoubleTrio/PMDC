@@ -188,6 +188,7 @@
                                     Minimum="1"
                                     Maximum="100"
                                     Watermark="Min"
+                                    ShowButtonSpinner="False"
                                     Value="{Binding Min}"
                                     ValueChanged="MinTextBox_OnValueChanged"
                                     GotFocus="MinTextBox_OnGotFocus" />
@@ -200,6 +201,7 @@
                                     Maximum="100"
                                     Margin="-4, 0, 6, 0"
                                     Watermark="Min"
+                                    ShowButtonSpinner="False"
                                     Value="{Binding Max}"
                                     ValueChanged="MaxTextBox_OnValueChanged"
                                     GotFocus="MaxTextBox_OnGotFocus" />

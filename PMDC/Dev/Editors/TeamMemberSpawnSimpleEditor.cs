@@ -4,6 +4,7 @@ using Avalonia.Controls;
 using PMDC.Dev.ViewModels;
 using PMDC.Dev.Views;
 using RogueEssence.Dev;
+using RogueEssence.Dev.ViewModels;
 using RogueEssence.LevelGen;
 
 namespace PMDC.Dev
@@ -21,14 +22,16 @@ namespace PMDC.Dev
         public override void LoadWindowControls(StackPanel control, string parent, Type parentType, string name, Type type, object[] attributes,
             TeamMemberSpawn obj, Type[] subGroupStack)
         {
+            EditorPageViewModel pageViewModel = control.FindAncestorViewModel<EditorPageViewModel>();
+            
             TeamMemberSpawnView view = new TeamMemberSpawnView();
             if (obj.Spawn != null)
             {
-                view.DataContext = new TeamMemberSpawnModel(_context.DialogService, new TeamMemberSpawn(obj));
+                view.DataContext = new TeamMemberSpawnModel(_context, pageViewModel, new TeamMemberSpawn(obj));
             }
             else
             { 
-                view.DataContext = new TeamMemberSpawnModel(_context.DialogService);
+                view.DataContext = new TeamMemberSpawnModel(_context, pageViewModel);
             }
             
             control.Children.Add(view);
